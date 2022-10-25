@@ -14,6 +14,10 @@ class PetSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $this->call([
+            UserSeeder::class,
+            PostSeeder::class,
+            CommentSeeder::class,
+        ]);
     }
 }
