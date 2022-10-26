@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,10 +15,6 @@ class PetSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
-        ]);
+        Pet::factory()->times(10)->create();
     }
 }

@@ -17,7 +17,11 @@ class PetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'species' => fake()->word(),
+            'breed' => fake()->word(),
+            'description' => fake()->text(),
+            'name' => fake()->name(),
+            'age' => fake()->randomFloat(),
         ];
     }
 }
