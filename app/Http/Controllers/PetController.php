@@ -27,7 +27,9 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pet = Pet::create($request->only([
+            'species', 'breed', 'description', 'name', 'age'
+        ]));
     }
 
     /**
