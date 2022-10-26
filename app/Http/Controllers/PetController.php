@@ -14,7 +14,9 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        // $pets = Pet::all();
+        // return new PetCollection($pets);
+        return new PetCollection(Pet::all());
     }
 
     /**
