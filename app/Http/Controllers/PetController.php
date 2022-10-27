@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PetCollection;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 
