@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PetCollection;
+use App\Http\Resources\PetResource;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 
@@ -48,6 +48,8 @@ class PetController extends Controller
         $pet = Pet::create($request->only([
             'species', 'breed', 'description', 'name', 'age'
         ]));
+
+        return new PetResource($pet);
     }
 
     /**
