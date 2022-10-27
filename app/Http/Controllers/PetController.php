@@ -11,6 +11,23 @@ class PetController extends Controller
     /**
      * Display a listing of the resource.
      *
+ * @OA\Get(
+ *     path="/api/pets",
+ *     description="Displays all the pets",
+ *     tags={"Pets"},
+     *      @OA\Response(
+        *          response=200,
+        *          description="Successful operation, Returns a list of Pets in JSON format"
+        *       ),
+        *      @OA\Response(
+        *          response=401,
+        *          description="Unauthenticated",
+        *      ),
+        *      @OA\Response(
+        *          response=403,
+        *          description="Forbidden"
+        *      )
+ * )
      * @return \Illuminate\Http\Response
      */
     public function index()
