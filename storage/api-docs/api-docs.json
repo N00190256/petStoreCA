@@ -53,8 +53,8 @@
                 "description": "Create new pet",
                 "operationId": "cfc3bb9eb41d8f40bcb678b5194c5a96",
                 "responses": {
-                    "200": {
-                        "description": "Successful operation, Create a new pet"
+                    "201": {
+                        "description": "Successful operation, Created a new pet"
                     },
                     "405": {
                         "description": "Invalid input"

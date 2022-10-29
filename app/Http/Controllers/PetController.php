@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PetCollection;
 use App\Http\Resources\PetResource;
 use App\Models\Pet;
 use Illuminate\Http\Request;
@@ -33,8 +34,8 @@ class PetController extends Controller
  *     description="Create new pet",
  *     tags={"Pets"},
      *      @OA\Response(
-        *          response=200,
-        *          description="Successful operation, Create a new pet"
+        *          response=201,
+        *          description="Successful operation, Created a new pet"
         *       ),
         *      @OA\Response(
         *          response=405,
