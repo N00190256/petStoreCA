@@ -28,6 +28,19 @@ class PetController extends Controller
         *          description="Forbidden"
         *      )
  * )
+ *  * @OA\Post(
+ *     path="/api/pets",
+ *     description="Create new pet",
+ *     tags={"Pets"},
+     *      @OA\Response(
+        *          response=200,
+        *          description="Successful operation, Create a new pet"
+        *       ),
+        *      @OA\Response(
+        *          response=405,
+        *          description="Invalid input"
+        *      )
+ * )
      * @return \Illuminate\Http\Response
      */
     public function index()
