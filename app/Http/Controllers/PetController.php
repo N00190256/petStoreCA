@@ -90,7 +90,7 @@ class PetController extends Controller
  *     path="/api/pets/id",
  *     description="Displays Pet with specified id",
  *     tags={"Pets"},
- *     *       *   *          *  @OA\Parameter(
+ *          *  @OA\Parameter(
      *      name="id",
      *      description="id of Pet",
      *      example=5,
@@ -106,6 +106,77 @@ class PetController extends Controller
         *      @OA\Response(
         *          response=404,
         *          description="Not Found",
+        *      )
+ * )
+ *  * @OA\Put(
+ *     path="/api/pets",
+ *     description="Create new pet",
+ *     tags={"Pets"},
+ *          *  @OA\Parameter(
+     *      name="id",
+     *      description="id of Pet you want to Update",
+     *      example=7,
+     *      in="path",
+     *           @OA\Schema(
+     *          type="int"
+     *      )
+     *  ),
+     *   *          *  @OA\Parameter(
+     *      name="species",
+     *      description="Species of Pet",
+     *      example="Dog",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *   *          *  @OA\Parameter(
+     *      name="breed",
+     *      description="Breed of Pet species",
+     *      example="Labrador",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="description",
+     *      description="Description of Pet",
+     *      example="Brown with white spots",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="text"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="name",
+     *      description="Name of Pet",
+     *      example="Bruno",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="age",
+     *      description="Age of Pet",
+     *      example=8,
+     *      in="path",
+     *           @OA\Schema(
+     *          type="int"
+     *      )
+     *  ),
+     *      @OA\Response(
+        *          response=400,
+        *          description="Invalid id supplied"
+        *       ),
+     *      @OA\Response(
+        *          response=404,
+        *          description="Pet not found"
+        *       ),
+        *      @OA\Response(
+        *          response=405,
+        *          description="Validation exception"
         *      )
  * )
      * @return \Illuminate\Http\Response
@@ -152,7 +223,11 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        //
+        $pet->update($request->only([
+            'species', 'breed', 'description', 'name', 'age' 
+        ]));
+
+        return new PetResource($pet);
     }
 
     /**

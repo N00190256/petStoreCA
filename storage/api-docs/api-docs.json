@@ -45,6 +45,80 @@
                     }
                 }
             },
+            "put": {
+                "tags": [
+                    "Pets"
+                ],
+                "description": "Create new pet",
+                "operationId": "6c48d044db281422815d6dd2b4d1f430",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Pet you want to Update",
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": 7
+                    },
+                    {
+                        "name": "species",
+                        "in": "path",
+                        "description": "Species of Pet",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Dog"
+                    },
+                    {
+                        "name": "breed",
+                        "in": "path",
+                        "description": "Breed of Pet species",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Labrador"
+                    },
+                    {
+                        "name": "description",
+                        "in": "path",
+                        "description": "Description of Pet",
+                        "schema": {
+                            "type": "text"
+                        },
+                        "example": "Brown with white spots"
+                    },
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Name of Pet",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Bruno"
+                    },
+                    {
+                        "name": "age",
+                        "in": "path",
+                        "description": "Age of Pet",
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": 8
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid id supplied"
+                    },
+                    "404": {
+                        "description": "Pet not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "Pets"
