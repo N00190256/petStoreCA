@@ -109,7 +109,7 @@ class PetController extends Controller
         *      )
  * )
  *  * @OA\Put(
- *     path="/api/pets",
+ *     path="/api/pets/id",
  *     description="Create new pet",
  *     tags={"Pets"},
  *          *  @OA\Parameter(
@@ -179,6 +179,28 @@ class PetController extends Controller
         *          description="Validation exception"
         *      )
  * )
+    * @OA\Delete(
+ *     path="/api/pets/id",
+ *     description="Delete a Pet",
+ *     tags={"Pets"},
+ *          *  @OA\Parameter(
+     *      name="id",
+     *      description="id of Pet you want to Delete",
+     *      example=4,
+     *      in="path",
+     *           @OA\Schema(
+     *          type="int"
+     *      )
+     *  ),
+     *      @OA\Response(
+        *          response=400,
+        *          description="Invalid id supplied"
+        *       ),
+        *      @OA\Response(
+        *          response=404,
+        *          description="Pet not found"
+        *      )
+ * )
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -238,6 +260,7 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
