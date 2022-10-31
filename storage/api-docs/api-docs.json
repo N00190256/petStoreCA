@@ -52,6 +52,53 @@
                 ],
                 "description": "Create new pet",
                 "operationId": "cfc3bb9eb41d8f40bcb678b5194c5a96",
+                "parameters": [
+                    {
+                        "name": "species",
+                        "in": "path",
+                        "description": "Species of Pet being added",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Dog"
+                    },
+                    {
+                        "name": "breed",
+                        "in": "path",
+                        "description": "Breed of Pet species",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Labrador"
+                    },
+                    {
+                        "name": "description",
+                        "in": "path",
+                        "description": "Description of Pet",
+                        "schema": {
+                            "type": "text"
+                        },
+                        "example": "Brown with white spots"
+                    },
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Name of Pet",
+                        "schema": {
+                            "type": "varchar"
+                        },
+                        "example": "Bruno"
+                    },
+                    {
+                        "name": "age",
+                        "in": "path",
+                        "description": "Age of Pet",
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": 8
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Successful operation, Created a new pet"

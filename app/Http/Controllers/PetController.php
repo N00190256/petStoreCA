@@ -33,6 +33,51 @@ class PetController extends Controller
  *     path="/api/pets",
  *     description="Create new pet",
  *     tags={"Pets"},
+ *          *  @OA\Parameter(
+     *      name="species",
+     *      description="Species of Pet being added",
+     *      example="Dog",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *   *          *  @OA\Parameter(
+     *      name="breed",
+     *      description="Breed of Pet species",
+     *      example="Labrador",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="description",
+     *      description="Description of Pet",
+     *      example="Brown with white spots",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="text"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="name",
+     *      description="Name of Pet",
+     *      example="Bruno",
+     *      in="path",
+     *           @OA\Schema(
+     *          type="varchar"
+     *      )
+     *  ),
+     *       *   *          *  @OA\Parameter(
+     *      name="age",
+     *      description="Age of Pet",
+     *      example=8,
+     *      in="path",
+     *           @OA\Schema(
+     *          type="int"
+     *      )
+     *  ),
      *      @OA\Response(
         *          response=201,
         *          description="Successful operation, Created a new pet"
