@@ -31,7 +31,6 @@
                 "tags": [
                     "Pets"
                 ],
-                "summary": "Display a listing of the resource.",
                 "description": "Displays all the pets",
                 "operationId": "7b44ba1ad8a38f7865a2845fa9ebbfe3",
                 "responses": {
@@ -105,6 +104,34 @@
                     },
                     "405": {
                         "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/api/pets/id": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "description": "Displays Pet with specified id",
+                "operationId": "f325eca2cb2e9d00e58892ee6528f833",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Pet",
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": 5
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation, Returns Pet corresponding to id"
+                    },
+                    "404": {
+                        "description": "Not Found"
                     }
                 }
             }

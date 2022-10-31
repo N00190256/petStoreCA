@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class PetController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
  * @OA\Get(
  *     path="/api/pets",
@@ -87,6 +86,28 @@ class PetController extends Controller
         *          description="Invalid input"
         *      )
  * )
+ *  * @OA\Get(
+ *     path="/api/pets/id",
+ *     description="Displays Pet with specified id",
+ *     tags={"Pets"},
+ *     *       *   *          *  @OA\Parameter(
+     *      name="id",
+     *      description="id of Pet",
+     *      example=5,
+     *      in="path",
+     *           @OA\Schema(
+     *          type="int"
+     *      )
+     *  ),
+     *      @OA\Response(
+        *          response=200,
+        *          description="Successful operation, Returns Pet corresponding to id"
+        *       ),
+        *      @OA\Response(
+        *          response=404,
+        *          description="Not Found",
+        *      )
+ * )
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -119,7 +140,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return new PetResource($pet);
     }
 
     /**
