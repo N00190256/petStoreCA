@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PetCollection;
 use App\Http\Resources\PetResource;
 use App\Models\Pet;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 
