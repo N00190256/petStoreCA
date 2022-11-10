@@ -39,7 +39,7 @@ class PetController extends Controller
  *     path="/api/pets",
  *     description="Create new pet",
  *     tags={"Pets"},
- *          *  @OA\Parameter(
+ *       *          *  @OA\Parameter(
      *      name="species",
      *      description="Species of Pet being added",
      *      example="Dog",
@@ -66,7 +66,7 @@ class PetController extends Controller
      *          type="text"
      *      )
      *  ),
-     *       *   *          *  @OA\Parameter(
+     *     @OA\Parameter(
      *      name="name",
      *      description="Name of Pet",
      *      example="Bruno",
