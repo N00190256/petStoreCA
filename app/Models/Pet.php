@@ -12,6 +12,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pet extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','species', 'breed', 'description', 'name', 'age'];
+    protected $fillable = ['id','species', 'breed', 'description', 'name', 'age', 'customer_id'];
     // protected $guarded = [];
+
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
