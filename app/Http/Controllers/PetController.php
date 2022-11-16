@@ -220,7 +220,7 @@ class PetController extends Controller
     {
         // $pets = Pet::all();
         // return new PetCollection($pets);
-        return new PetCollection(Pet::all());
+        return new PetCollection(Pet::with('customer')->get());
     }
 
     /**
@@ -232,7 +232,7 @@ class PetController extends Controller
     public function store(Request $request)
     {
         $pet = Pet::create($request->only([
-            'species', 'breed', 'description', 'name', 'age'
+            'species', 'breed', 'description', 'name', 'age', 'customer_id'
         ]));
 
         return new PetResource($pet);
@@ -259,7 +259,7 @@ class PetController extends Controller
     public function update(Request $request, Pet $pet)
     {
         $pet->update($request->only([
-            'species', 'breed', 'description', 'name', 'age' 
+            'species', 'breed', 'description', 'name', 'age', 'customer_id'
         ]));
 
         return new PetResource($pet);
