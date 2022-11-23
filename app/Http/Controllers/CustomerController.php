@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Resources\CustomerCollection;     
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
@@ -25,9 +26,15 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
-        //
+        
+        $customer = Customer::create([
+            'name' => $request->name,
+            'address' => $request->address
+        ]);
+
+            return new CustomerResource($customer);
     }
 
     /**
