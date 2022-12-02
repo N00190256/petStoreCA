@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCustomerRequest extends FormRequest
+class UpdateCustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,14 @@ class StoreCustomerRequest extends FormRequest
      */
     public function rules()
     {
+        $method = $this->method();
+
+    if($method == 'PUT'){
         return [
-            'name' => ['required'],
-            'address' =>['required']
+            'name' => ['sometimes', 'required'],
+            'address' => ['sometimes', 'required']
         ];
+
+        }
     }
 }
