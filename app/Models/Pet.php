@@ -20,4 +20,9 @@ class Pet extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function caretakers()
+    {
+        return $this->belongstoMany(Caretaker::class)->withTimestamps();
+    }
 }
